@@ -1,0 +1,42 @@
+﻿
+@{
+    @model DotNetCoreApplication.Models.Location
+}
+<head>
+    <link href="~/ExtraCssFile/bootstrap.css" rel="stylesheet" />
+    <script src="~/ExtraJsFile/jquery-3.3.1.js"></script>
+    <script src="~/ExternalJs/LocationMaster.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Location Name</label>
+                <input type="text" id="LocationName" class="form-control" />
+                @Html.HiddenFor(m => m.LocationId)
+            </div>
+            <div class="form-group">
+                <label>Location Description</label>
+                @Html.TextArea("Description", new { @class = "form-control", @rows = 3, @columns = 5 })
+            </div>
+
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <input type="button" id="BtnSave" class="btn-primary" value="LocationSave" onclick="SaveLocation()" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <table border="5" id="LocationTable">
+            <tr>
+                <th>Location Name</th>
+                <th>Location Desc</th>
+                <th>Action</th>
+            </tr>
+            <tbody id="LocBody">
+            </tbody>
+        </table>
+    </div>
+</body>
